@@ -11,8 +11,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Alert, AlertTitle } from "@/components/ui/alert";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const formSchema = z.object({
     email: z.string().email({ message: "Invalid email" }),
@@ -41,6 +42,7 @@ export const SignInView = () => {
             {
                 email: data.email,
                 password: data.password,
+                callbackURL: "/",
             },
             {
                 onSuccess: () => {
@@ -54,6 +56,27 @@ export const SignInView = () => {
             }
         );
     };
+
+    const onSocial = (provider: "github" | "google") => {
+            setError(null);
+            setPending(true);
+    
+            authClient.signIn.social(
+                {
+                    provider: provider,
+                    callbackURL: "/"
+                },
+                {
+                    onSuccess: () => {
+                        setPending(false);
+                    },
+                    onError: ({ error }) => {
+                        setPending(false);
+                        setError(error.message);
+                    }
+                }
+            );
+        };
 
     return (
         <div className="flex flex-col gap-6">
@@ -131,19 +154,21 @@ export const SignInView = () => {
                                 <div className="grid grid-cols-2 gap-4">
                                     <Button
                                         disabled={pending}
+                                        onClick={() => onSocial("google")}
                                         variant="outline"
                                         type="button"
                                         className="w-full"
                                     >
-                                        Google
+                                        <FaGoogle/>
                                     </Button>
                                     <Button
                                         disabled={pending}
+                                        onClick={() => onSocial("github")}  
                                         variant="outline"
                                         type="button"
                                         className="w-full"
                                     >
-                                        Github
+                                        <FaGithub/>
                                     </Button>
                                 </div>
                                 <div className="text-center text-sm">
@@ -164,7 +189,7 @@ export const SignInView = () => {
                     </div>
                 </CardContent>
             </Card>
-            <div className="text-muter-foregrouyynd *:[a]hover:text-primary text-center text-xs text-balance *:[a]:underline *:[a]:underline-offset-4">
+            <div className="text-muted-foreground *:[a]hover:text-primary text-center text-xs text-balance *:[a]:underline *:[a]:underline-offset-4">
                   By clicking continue, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacyt Policy</a>
             </div>
         </div>
