@@ -35,7 +35,7 @@ export const DashboardUserButton = () => {
         <DropdownMenu>
             <DropdownMenuTrigger className="rounded-lg border-border/10 p-3 w-full flex items-center justify-between bg-white/5 hover:bg-white/10 overflow-hidden">
                 {data.user.image ? (
-                    <Avatar>
+                    <Avatar className="size-9 mr-3">
                         <AvatarImage src={data.user.image}/>
                     </Avatar>
                 ) : (
@@ -59,7 +59,7 @@ export const DashboardUserButton = () => {
                 <DropdownMenuLabel>
                     <div className="flex flex-col gap-1">
                         <span className="font-medium truncate">{data.user.name}</span>
-                        <span className="font-sm font-normal text-muted-foreground truncate">{data.user.email}</span>
+                        <span className="text-sm font-normal text-muted-foreground truncate">{data.user.email}</span>
                     </div>
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
