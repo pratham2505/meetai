@@ -3,6 +3,8 @@ import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { GeneratedAvatar } from "@/components/generated-avatar";
 import { ChevronDownIcon, CreditCardIcon, LogOutIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { Button } from "@/components/ui/button";
 
 import {
     DropdownMenu,
@@ -21,8 +23,6 @@ import {
     DrawerDescription,
     DrawerFooter,
 } from "@/components/ui/drawer";
-import { useIsMobile } from "@/hooks/use-mobile";
-import { Button } from "@/components/ui/button";
 
 export const DashboardUserButton = () => {
     const router = useRouter();
