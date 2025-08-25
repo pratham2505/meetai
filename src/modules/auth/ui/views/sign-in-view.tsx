@@ -90,7 +90,7 @@ export const SignInView = () => {
                                         Welcome Back
                                     </h1>
                                     <p className="text-muted-foreground text-balance">
-                                        Login in to your account
+                                        Login to your account
                                     </p>
                                 </div>
                                 <div className="grid gap-3">
