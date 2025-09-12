@@ -49,7 +49,7 @@ export const AgentsViewLoading = () => {
             description="This may take a few seconds" 
         />
     );
-}
+};
 
 export const AgentsViewError = () => {
     return (
@@ -58,4 +58,4 @@ export const AgentsViewError = () => {
             description="Something went wrong"
         />
     );
-}
+};
