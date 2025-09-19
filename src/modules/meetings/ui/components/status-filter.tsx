@@ -11,7 +11,6 @@ import { CommandSelect } from "@/components/command-select";
 import { MeetingStatus } from "../../types";
 
 import { useMeetingsFilters } from "../../hooks/use-meetings-filters";
-import { meetingStatus } from "@/db/schema";
 
 const options = [
     {
