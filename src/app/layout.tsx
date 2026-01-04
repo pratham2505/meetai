@@ -4,7 +4,9 @@ import { NuqsAdapter } from "nuqs/adapters/next";
 
 import { TRPCReactProvider } from "@/trpc/client";
 
+// import "stream-chat-react/dist/css/v2/index.css";
 import "./globals.css";
+
 import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({
